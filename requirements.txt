@@ -1,5 +1,7 @@
 numpy==2.1.3
 pandas
+scikit-learn
+scipy
 polars
 matplotlib
 pyod
@@ -17,3 +19,4 @@ langchain-together
 
 openpyxl
 
+yfinance
