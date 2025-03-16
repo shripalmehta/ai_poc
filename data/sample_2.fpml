@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FpML xmlns="http://www.fpml.org/FpML-5/confirmation" version="5-12">
+    <trade>
+        <tradeHeader>
+            <partyTradeIdentifier>
+                <partyReference href="Party1"/>
+                <tradeId>IRS123456</tradeId>
+            </partyTradeIdentifier>
+            <tradeDate>2025-03-04</tradeDate>
+        </tradeHeader>
+        <swap>
+            <!-- Fixed Leg -->
+            <swapStream>
+                <payerPartyReference href="Party1"/>
+                <receiverPartyReference href="Party2"/>
+                <calculationPeriodDates>
+                    <effectiveDate>
+                        <unadjustedDate>2025-04-01</unadjustedDate>
+                    </effectiveDate>
+                    <terminationDate>
+                        <unadjustedDate>2030-04-01</unadjustedDate>
+                    </terminationDate>
+                    <calculationPeriodFrequency>
+                        <rollConvention>1</rollConvention>
+                        <periodMultiplier>6</periodMultiplier>
+                        <period>M</period>
+                    </calculationPeriodFrequency>
+                </calculationPeriodDates>
+                <paymentDates>
+                    <paymentFrequency>
+                        <periodMultiplier>6</periodMultiplier>
+                        <period>M</period>
+                    </paymentFrequency>
+                    <payRelativeTo>CalculationPeriodEndDate</payRelativeTo>
+                </paymentDates>
+                <calculationPeriodAmount>
+                    <notionalSchedule>
+                        <notionalStepSchedule>
+                            <initialValue>10000000</initialValue>
+                            <currency>USD</currency>
+                        </notionalStepSchedule>
+                    </notionalSchedule>
+                    <fixedRateSchedule>
+                        <initialValue>0.025</initialValue>
+                    </fixedRateSchedule>
+                </calculationPeriodAmount>
+            </swapStream>
+            <!-- Floating Leg -->
+            <swapStream>
+                <payerPartyReference href="Party2"/>
+                <receiverPartyReference href="Party1"/>
+                <calculationPeriodDates>
+                    <effectiveDate>
+                        <unadjustedDate>2025-04-01</unadjustedDate>
+                    </effectiveDate>
+                    <terminationDate>
+                        <unadjustedDate>2030-04-01</unadjustedDate>
+                    </terminationDate>
+                    <calculationPeriodFrequency>
+                        <rollConvention>1</rollConvention>
+                        <periodMultiplier>6</periodMultiplier>
+                        <period>M</period>
+                    </calculationPeriodFrequency>
+                </calculationPeriodDates>
+                <paymentDates>
+                    <paymentFrequency>
+                        <periodMultiplier>6</periodMultiplier>
+                        <period>M</period>
+                    </paymentFrequency>
+                    <payRelativeTo>CalculationPeriodEndDate</payRelativeTo>
+                </paymentDates>
+                <resetDates>
+                    <resetFrequency>
+                        <periodMultiplier>1</periodMultiplier>
+                        <period>M</period>
+                    </resetFrequency>
+                </resetDates>
+                <calculationPeriodAmount>
+                    <notionalSchedule>
+                        <notionalStepSchedule>
+                            <initialValue>10000000</initialValue>
+                            <currency>USD</currency>
+                        </notionalStepSchedule>
+                    </notionalSchedule>
+                    <floatingRateCalculation>
+                        <floatingRateIndex>SOFR</floatingRateIndex>
+                        <indexTenor>
+                            <periodMultiplier>1</periodMultiplier>
+                            <period>D</period>
+                        </indexTenor>
+                        <spreadSchedule>
+                            <initialValue>0.0015</initialValue>
+                        </spreadSchedule>
+                    </floatingRateCalculation>
+                </calculationPeriodAmount>
+            </swapStream>
+        </swap>
+    </trade>
+</FpML>

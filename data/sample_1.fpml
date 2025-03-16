@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FpML version="5.10" xmlns="http://www.fpml.org/FpML-5/reporting">
+    <trade>
+        <tradeHeader>
+            <partyTradeIdentifier>
+                <partyReference href="PartyA"/>
+                <tradeId tradeIdScheme="TradeIdScheme">12345</tradeId>
+            </partyTradeIdentifier>
+            <tradeDate>2025-03-04</tradeDate>
+        </tradeHeader>
+        <swap>
+            <swapStream>
+                <payerPartyReference href="PartyA"/>
+                <receiverPartyReference href="PartyB"/>
+                <calculationPeriodDates>
+                    <effectiveDate>
+                        <unadjustedDate>2025-04-01</unadjustedDate>
+                    </effectiveDate>
+                    <terminationDate>
+                        <unadjustedDate>2030-04-01</unadjustedDate>
+                    </terminationDate>
+                </calculationPeriodDates>
+                <notionalSchedule>
+                    <notionalAmount currency="USD">10000000</notionalAmount>
+                </notionalSchedule>
+                <fixedRateSchedule>
+                    <rate>0.03</rate> <!-- Fixed rate of 3% -->
+                </fixedRateSchedule>
+            </swapStream>
+            <swapStream>
+                <payerPartyReference href="PartyB"/>
+                <receiverPartyReference href="PartyA"/>
+                <floatingRateIndex>USD-LIBOR-3M</floatingRateIndex>
+                <spreadSchedule>
+                    <spread>0.0025</spread> <!-- Spread of 0.25% -->
+                </spreadSchedule>
+            </swapStream>
+        </swap>
+    </trade>
+</FpML>
