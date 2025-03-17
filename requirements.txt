@@ -5,6 +5,7 @@ scipy
 polars
 matplotlib
 pyod
+wordcloud
 
 langchain-core
 langchain-community
