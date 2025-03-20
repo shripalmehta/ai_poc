@@ -1,3 +1,5 @@
+.DS_Store
+.qodo
 .env
 
 __pycache__/
